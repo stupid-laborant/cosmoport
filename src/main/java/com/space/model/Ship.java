@@ -1,6 +1,5 @@
 package com.space.model;
 
-import com.sun.istack.internal.NotNull;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
