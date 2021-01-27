@@ -4,6 +4,7 @@ import com.space.model.Ship;
 import com.space.model.ShipType;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -14,7 +15,58 @@ import java.util.List;
 
 public interface ShipService {
     List<Ship> getAll(Specification<Ship> shipSpecification, Pageable pageable);
+    List<Ship> getAllWithStreams(String name,
+                                String planet,
+                                ShipType shipType,
+                                Long after,
+                                Long before,
+                                Boolean isUsed,
+                                Double minSpeed,
+                                Double maxSpeed,
+                                Integer minCrewSize,
+                                Integer maxCrewSize,
+                                Double minRating,
+                                Double maxRating,
+                                Pageable page);
+    List<Ship> getAllWithCycles(String name,
+                                String planet,
+                                ShipType shipType,
+                                Long after,
+                                Long before,
+                                Boolean isUsed,
+                                Double minSpeed,
+                                Double maxSpeed,
+                                Integer minCrewSize,
+                                Integer maxCrewSize,
+                                Double minRating,
+                                Double maxRating,
+                                Pageable page);
+
     Integer countShips(Specification<Ship> shipSpecification);
+    Integer countShipsWithStreams(String name,
+                                  String planet,
+                                  ShipType shipType,
+                                  Long after,
+                                  Long before,
+                                  Boolean isUsed,
+                                  Double minSpeed,
+                                  Double maxSpeed,
+                                  Integer minCrewSize,
+                                  Integer maxCrewSize,
+                                  Double minRating,
+                                  Double maxRating);
+    Integer countShipsWithCycles(String name,
+                                 String planet,
+                                 ShipType shipType,
+                                 Long after,
+                                 Long before,
+                                 Boolean isUsed,
+                                 Double minSpeed,
+                                 Double maxSpeed,
+                                 Integer minCrewSize,
+                                 Integer maxCrewSize,
+                                 Double minRating,
+                                 Double maxRating);
     Ship createShip(Ship ship);
     Ship updateShip(Long id, Ship ship);
     Ship getShip(Long id);
